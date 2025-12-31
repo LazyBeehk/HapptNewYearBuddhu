@@ -7,11 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Updated Pinkish Theme */
-            --primary: #ff3366;       /* Vibrant Pink */
-            --secondary: #ffcce0;     /* Pale Pink */
-            --bg-dark: #2a0816;       /* Deep Ruby */
-            --bg-light: #5e1330;      /* Soft Magenta */
+            --primary: #ff3366;
+            --secondary: #ffcce0;
+            --bg-dark: #2a0816;
+            --bg-light: #5e1330;
             --glass: rgba(255, 255, 255, 0.15);
             --glow: rgba(255, 51, 102, 0.4);
         }
@@ -19,7 +18,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            /* Radial gradient for a spotlight effect */
             background: radial-gradient(circle at center, var(--bg-light), var(--bg-dark));
             min-height: 100vh;
             color: white;
@@ -28,7 +26,6 @@
             touch-action: manipulation;
         }
 
-        /* --- Magical Background Particles (Softer Pink Fireflies) --- */
         .firefly {
             position: fixed;
             left: 50%;
@@ -51,10 +48,10 @@
         .firefly::before { background: var(--primary); opacity: 0.4; animation: drift ease alternate infinite; }
         .firefly::after { background: white; opacity: 0; box-shadow: 0 0 0vw 0vw var(--primary); animation: drift ease alternate infinite, flash ease infinite; }
 
-        /* --- Layout & Transitions --- */
         section {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -63,7 +60,7 @@
             text-align: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 1s, transform 1s;
             transform: scale(0.95) translateY(20px);
             z-index: 2;
         }
@@ -74,47 +71,52 @@
             transform: scale(1) translateY(0);
         }
 
-        /* --- Glassmorphism Card (Pinkish Glow) --- */
         .glass-box {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255,255,255,0.3);
             padding: 40px 30px;
             border-radius: 30px;
-            box-shadow: 0 0 40px var(--glow); /* Pink Glow */
+            box-shadow: 0 0 40px var(--glow);
             max-width: 90%;
             width: 400px;
             animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
+            0% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            100% { transform: translateY(0); }
         }
 
-        h1, h2 { font-family: 'Great Vibes', cursive; color: var(--secondary); text-shadow: 0 0 15px var(--primary); }
-        h1 { font-size: 4rem; margin-bottom: 10px; }
-        h2 { font-size: 2.8rem; margin-bottom: 20px; }
-        p { font-size: 1.1rem; margin-bottom: 20px; line-height: 1.8; color: #ffe6f0; }
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--secondary);
+            text-shadow: 0 0 15px var(--primary);
+        }
+
+        h1 { font-size: 4rem; }
+        h2 { font-size: 2.8rem; }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #ffe6f0;
+        }
 
         input {
             width: 100%;
             padding: 15px;
             border-radius: 50px;
             border: 1px solid rgba(255,255,255,0.4);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             color: white;
             text-align: center;
             font-size: 1.1rem;
             margin-bottom: 25px;
-            outline: none;
-            transition: 0.3s;
         }
-        input:focus { border-color: var(--secondary); box-shadow: 0 0 15px var(--glow); }
 
-        /* --- Buttons with Heartbeat --- */
         button {
             background: linear-gradient(135deg, #ff6b95, #ff3366);
             border: none;
@@ -123,49 +125,37 @@
             border-radius: 50px;
             font-size: 1.2rem;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
             font-weight: 600;
         }
-        button:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255, 51, 102, 0.6); }
-        button:active { transform: scale(0.95); }
-        
-        /* Pulse Animation for primary buttons */
+
         .pulse-btn { animation: heartbeat 1.5s infinite; }
-        
+
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); box-shadow: 0 0 25px var(--primary); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
 
-        /* --- Polaroid Gallery --- */
         .polaroid-container {
-            position: relative;
             width: 280px;
             height: 350px;
             background: white;
-            padding: 15px 15px 60px 15px;
+            padding: 15px 15px 60px;
             transform: rotate(-3deg);
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            margin-bottom: 40px;
             border-radius: 5px;
-            transition: transform 0.5s;
+            margin-bottom: 40px;
         }
-        .polaroid-container:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
         .polaroid-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 2px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
         }
+
         .polaroid-caption {
             position: absolute;
             bottom: 15px;
-            left: 0;
             width: 100%;
             text-align: center;
             color: #444;
@@ -173,33 +163,6 @@
             font-size: 1.8rem;
         }
 
-        /* --- Proposal Buttons --- */
-        .proposal-btns {
-            position: relative;
-            height: 250px; /* More space for movement */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        #noBtn {
-            position: absolute;
-            background: #888; /* Grey for No */
-            z-index: 10;
-            transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth glide */
-        }
-
-        #yesBtn {
-            background: linear-gradient(135deg, #ff3366, #ff0040);
-            z-index: 20;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        /* --- Confetti Canvas --- */
         #confetti {
             position: fixed;
             top: 0; left: 0;
@@ -207,233 +170,108 @@
             pointer-events: none;
             z-index: 999;
         }
-
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 600px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
-            .polaroid-container { width: 80vw; height: 100vw; max-height: 420px; }
-            button { padding: 12px 30px; font-size: 1rem; }
-        }
     </style>
 </head>
+
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
 
-    <canvas id="confetti"></canvas>
+<canvas id="confetti"></canvas>
 
-    <section id="s1" class="active">
-        <div class="glass-box">
-            <h2>Hey Buddhu ❤️</h2>
-            <p>This world is locked. Enter the secret name I call you to enter.</p>
-            <input type="password" id="password" placeholder="Hint: b.....">
-            <button onclick="unlock()" class="pulse-btn">Unlock My Heart</button>
-            <p id="errorMsg" style="color: #ffcccc; font-size: 0.9rem; margin-top: 15px; font-weight: 600;"></p>
-        </div>
-    </section>
+<section id="s1" class="active">
+    <div class="glass-box">
+        <h2>Hey Buddhu ❤️</h2>
+        <p>This world is locked. Enter the secret name I call you to enter.</p>
+        <input type="password" id="password" placeholder="Hint: b.....">
+        <button onclick="unlock()" class="pulse-btn">Unlock My Heart</button>
+        <p id="errorMsg"></p>
+    </div>
+</section>
 
-    <section id="s2">
-        <h1 id="welcomeText"></h1>
-        <p style="letter-spacing: 3px; text-transform: uppercase; font-weight: 300;">Ready for 2026?</p>
-        <button onclick="navigate('s2', 's3')">Let's Go ➜</button>
-    </section>
+<section id="s2">
+    <h1 id="welcomeText"></h1>
+    <button onclick="navigate('s2','s3')">Let's Go ➜</button>
+</section>
 
-    <section id="s3">
-        <h2>Our Memories 📸</h2>
-        <div class="polaroid-container">
-            <img id="galleryImg" src="https://github.com/LazyBeehk/HapptNewYearBuddhu/blob/main/1.jpeg" alt="Us">
-            <div class="polaroid-caption">Us Forever</div>
-        </div>
-        <button onclick="navigate('s3', 's4')">Next Page ❤️</button>
-    </section>
+<section id="s3">
+    <h2>Our Memories 📸</h2>
+    <div class="polaroid-container">
+        <img id="galleryImg"
+             src="https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/1.jpeg">
+        <div class="polaroid-caption">Us Forever</div>
+    </div>
+    <button onclick="navigate('s3','s4')">Next ❤️</button>
+</section>
 
-    <section id="s4">
-        <div class="glass-box">
-            <h2>Dear Suchitra,</h2>
-            <p id="letterText" style="min-height: 100px;"></p>
-        </div>
-        <button style="margin-top: 30px;" onclick="navigate('s4', 's5')" class="pulse-btn">One Last Thing... 💍</button>
-    </section>
+<section id="s4">
+    <div class="glass-box">
+        <h2>Dear Suchitra,</h2>
+        <p id="letterText"></p>
+    </div>
+    <button onclick="navigate('s4','s5')" class="pulse-btn">One Last Thing 💍</button>
+</section>
 
-    <section id="s5">
-        <h2>Will you be with me in 2026 & forever?</h2>
-        <p>There is no "No" in our dictionary 😉</p>
-        <div class="proposal-btns">
-            <button id="yesBtn" onclick="acceptProposal()" class="pulse-btn">YES, I Love You! ❤️</button>
-            <button id="noBtn">No 🙈</button>
-        </div>
-    </section>
+<section id="s5">
+    <h2>Will you be with me forever?</h2>
+    <button onclick="acceptProposal()" class="pulse-btn">YES ❤️</button>
+</section>
 
-    <section id="s6">
-        <h1 style="font-size: 5rem;">YAYYY! 🎉</h1>
-        <h2 style="color: white; text-shadow: 0 0 20px #ff3366;">I Love You Suchitra!</h2>
-        <p>Welcome to our beautiful 2026.</p>
-        <div style="font-size: 5rem; margin-top: 20px; animation: heartbeat 1s infinite;">💍❤️💑</div>
-    </section>
+<section id="s6">
+    <h1>YAYYY 🎉</h1>
+    <h2>I Love You Suchitra ❤️</h2>
+</section>
 
-    <script>
-        // --- 1. CONFIGURATION ---
-        const PASSCODE = "buddhu"; 
-        const PHOTOS = [
-            "https://github.com/LazyBeehk/HapptNewYearBuddhu/blob/main/2.jpeg",
-            "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=600",
-            "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600"
-        ];
-        const LETTER_CONTENT = "As we step into 2026, I want you to know that you are my happiness, my peace, and my home. Life is beautiful because you are in it. I promise to annoy you and love you endlessly.";
+<script>
+const PASSCODE = "buddhu";
 
-        // --- 2. GLOBAL VARIABLES ---
-        let currentPhoto = 0;
-        const music = document.getElementById('bgMusic');
+const PHOTOS = [
+    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/2.jpeg",
+    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/3.jpeg",
+    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/4.jpeg"
+];
 
-        // --- 3. UNLOCK FUNCTION ---
-        function unlock() {
-            const input = document.getElementById('password').value.toLowerCase().trim();
-            const error = document.getElementById('errorMsg');
-            
-            if (input === PASSCODE) {
-                music.volume = 0.5;
-                music.play().catch(e => console.log("Audio requires interaction"));
-                
-                navigate('s1', 's2');
-                typeWriter("welcomeText", "Happy New Year, Suchitra ❤️", 100);
-                startGallery();
-            } else {
-                error.textContent = "Wrong! Hint: It's what you are! (b...u)";
-                input.value = "";
-                // Shake effect
-                document.querySelector('.glass-box').style.animation = "shake 0.4s ease-in-out";
-                setTimeout(() => document.querySelector('.glass-box').style.animation = "float 6s ease-in-out infinite", 400);
-            }
-        }
+const LETTER_CONTENT = "As we step into 2026, I want you to know that you are my happiness, my peace, and my home.";
 
-        // --- 4. NAVIGATION ---
-        function navigate(fromId, toId) {
-            document.getElementById(fromId).classList.remove('active');
-            setTimeout(() => {
-                document.getElementById(toId).classList.add('active');
-                if (toId === 's4') typeWriter("letterText", LETTER_CONTENT, 40);
-            }, 600); // Matches CSS transition time
-        }
+let currentPhoto = 0;
+const music = document.getElementById("bgMusic");
 
-        // --- 5. TYPEWRITER EFFECT ---
-        function typeWriter(elementId, text, speed) {
-            const el = document.getElementById(elementId);
-            el.innerHTML = "";
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    el.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
+function unlock() {
+    if (password.value.toLowerCase() === PASSCODE) {
+        music.play();
+        navigate("s1","s2");
+        typeWriter("welcomeText","Happy New Year Suchitra ❤️",100);
+        startGallery();
+    }
+}
 
-        // --- 6. GALLERY LOGIC ---
-        function startGallery() {
-            setInterval(() => {
-                currentPhoto = (currentPhoto + 1) % PHOTOS.length;
-                const img = document.getElementById('galleryImg');
-                img.style.transition = "opacity 0.8s ease-in-out";
-                img.style.opacity = 0;
-                setTimeout(() => {
-                    img.src = PHOTOS[currentPhoto];
-                    img.style.opacity = 1;
-                }, 800);
-            }, 3500);
-        }
+function navigate(a,b){
+    document.getElementById(a).classList.remove("active");
+    document.getElementById(b).classList.add("active");
+    if(b==="s4") typeWriter("letterText",LETTER_CONTENT,40);
+}
 
-        // --- 7. THE 'RUNAWAY' BUTTON (Smoother) ---
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        let yesScale = 1;
+function typeWriter(id,text,speed){
+    let i=0, el=document.getElementById(id);
+    el.innerHTML="";
+    (function t(){
+        if(i<text.length){ el.innerHTML+=text[i++]; setTimeout(t,speed); }
+    })();
+}
 
-        function moveButton(e) {
-            if(e.type === 'touchstart') e.preventDefault(); 
-            
-            const maxW = window.innerWidth - 100;
-            const maxH = window.innerHeight - 100;
-            
-            const randomX = Math.random() * maxW + 50;
-            const randomY = Math.random() * maxH + 50;
+function startGallery(){
+    setInterval(()=>{
+        currentPhoto=(currentPhoto+1)%PHOTOS.length;
+        galleryImg.src=PHOTOS[currentPhoto];
+    },3000);
+}
 
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-            
-            yesScale += 0.15;
-            yesBtn.style.transform = `scale(${yesScale})`;
-        }
+function acceptProposal(){
+    navigate("s5","s6");
+}
+</script>
 
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('touchstart', moveButton);
-        noBtn.addEventListener('click', moveButton);
-
-        // --- 8. CELEBRATION ---
-        function acceptProposal() {
-            navigate('s5', 's6');
-            startConfetti();
-        }
-
-        // --- 9. CONFETTI EFFECT ---
-        const canvas = document.getElementById('confetti');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const pieces = [];
-        function startConfetti() {
-            for (let i = 0; i < 300; i++) {
-                pieces.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height - canvas.height,
-                    color: `hsl(${Math.random() * 60 + 330}, 100%, 50%)`, // Pinks and Reds
-                    size: Math.random() * 8 + 2,
-                    speed: Math.random() * 5 + 2
-                });
-            }
-            animateConfetti();
-        }
-
-        function animateConfetti() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            pieces.forEach(p => {
-                ctx.fillStyle = p.color;
-                ctx.fillRect(p.x, p.y, p.size, p.size);
-                p.y += p.speed;
-                if (p.y > canvas.height) p.y = 0;
-            });
-            requestAnimationFrame(animateConfetti);
-        }
-
-        // --- 10. GENERATE FIREFLIES ---
-        for(let i=0; i<20; i++) { // More fireflies
-            let div = document.createElement('div');
-            div.className = 'firefly';
-            div.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            document.body.appendChild(div);
-        }
-
-        // Animation Styles
-        const styleSheet = document.createElement("style");
-        styleSheet.innerText = `
-            @keyframes shake {
-                0% { transform: translateX(0); }
-                25% { transform: translateX(-15px); }
-                50% { transform: translateX(15px); }
-                75% { transform: translateX(-15px); }
-                100% { transform: translateX(0); }
-            }
-            @keyframes drift { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-            @keyframes flash { 0%, 30%, 100% { opacity: 0; box-shadow: 0 0 0vw 0vw var(--primary); } 5% { opacity: 1; box-shadow: 0 0 2vw 0.4vw var(--primary); } }
-        `;
-        document.head.appendChild(styleSheet);
-    </script>
 </body>
-
 </html>
-
