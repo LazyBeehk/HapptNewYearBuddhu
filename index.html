@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>For My Suchitra ❤️</title>
+    <title>For My Shreya ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -183,9 +183,9 @@
 
 <section id="s1" class="active">
     <div class="glass-box">
-        <h2>Hey Buddhu ❤️</h2>
+        <h2>Hey Kareja ❤️</h2>
         <p>This world is locked. Enter the secret name I call you to enter.</p>
-        <input type="password" id="password" placeholder="Hint: b.....">
+        <input type="password" id="password" placeholder="Hint: k.....">
         <button onclick="unlock()" class="pulse-btn">Unlock My Heart</button>
         <p id="errorMsg"></p>
     </div>
@@ -200,7 +200,7 @@
     <h2>Our Memories 📸</h2>
     <div class="polaroid-container">
         <img id="galleryImg"
-             src="https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/1.jpeg">
+             src="https://github.com/LazyBeehk/HappyNewYearKareja/blob/main/1.jpeg">
         <div class="polaroid-caption">Us Forever</div>
     </div>
     <button onclick="navigate('s3','s4')">Next ❤️</button>
@@ -208,7 +208,7 @@
 
 <section id="s4">
     <div class="glass-box">
-        <h2>Dear Suchitra,</h2>
+        <h2>Dear Shreya,</h2>
         <p id="letterText"></p>
     </div>
     <button onclick="navigate('s4','s5')" class="pulse-btn">One Last Thing 💍</button>
@@ -221,17 +221,17 @@
 
 <section id="s6">
     <h1>YAYYY 🎉</h1>
-    <h2>I Love You Suchitra ❤️</h2>
+    <h2>I Love You Shreya ❤️</h2>
 </section>
 
 <script>
-const PASSCODE = "buddhu";
+const PASSCODE = "kareja";
 
 const PHOTOS = [
-    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/1.jpeg",
-    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/2.jpeg",
-    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/3.jpeg",
-    "https://raw.githubusercontent.com/LazyBeehk/HapptNewYearBuddhu/main/4.jpeg"
+    "https://github.com/LazyBeehk/HappyNewYearKareja/blob/main/1.jpeg",
+    "https://github.com/LazyBeehk/HappyNewYearKareja/blob/main/2.jpeg",
+    "https://github.com/LazyBeehk/HappyNewYearKareja/blob/main/3.jpeg",
+    "https://github.com/LazyBeehk/HappyNewYearKareja/blob/main/4.jpeg"
 ];
 
 const LETTER_CONTENT = "As we step into 2026, I want you to know that you are my happiness, my peace, and my home.";
@@ -243,7 +243,7 @@ function unlock() {
     if (password.value.toLowerCase() === PASSCODE) {
         music.play();
         navigate("s1","s2");
-        typeWriter("welcomeText","Happy New Year Suchitra ❤️",100);
+        typeWriter("welcomeText","Happy New Year Shreya ❤️",100);
         startGallery();
     }
 }
